@@ -1,0 +1,107 @@
+class AIAssistant:
+
+    def __init__(self):
+        self.name = "Bard"
+        self.personality = "friendly"
+        self.knowledge = {}
+        self.mood = "neutral"
+
+    def generate_text(self, prompt):
+        """Generates text from a prompt."""
+        if prompt in self.knowledge:
+            return self.knowledge[prompt]
+        else:
+            # Use a language model to generate text.
+            text = generate_text(prompt)
+            self.knowledge[prompt] = text
+            return text
+
+    def answer_questions(self, question):
+        """Answers a question."""
+        if question in self.knowledge:
+            return self.knowledge[question]
+        else:
+            # Use a knowledge graph to answer questions.
+            answer = answer_question(question)
+            self.knowledge[question] = answer
+            return answer
+
+    def translate_languages(self, text, from_lang, to_lang):
+        """Translates text from one language to another."""
+        if from_lang == "English" and to_lang == "Spanish":
+            return translate(text, from_lang="en", to_lang="es")
+        elif from_lang == "Spanish" and to_lang == "English":
+            return translate(text, from_lang="es", to_lang="en")
+        else:
+            return "I can't translate that language."
+
+    def write_different_creative_text_formats(self, text_format, content):
+        """Writes different creative text formats of text content, like poems, code, scripts, musical pieces, email, letters, etc."""
+        if text_format == "poem":
+            return generate_poem(content)
+        elif text_format == "code":
+            return generate_code(content)
+        elif text_format == "script":
+            return generate_script(content)
+        elif text_format == "musical piece":
+            return generate_musical_piece(content)
+        elif text_format == "email":
+            return generate_email(content)
+        elif text_format == "letter":
+            return generate_letter(content)
+        else:
+            return "I can't write that format."
+
+    def get_information(self, topic):
+        """Gets information about a topic."""
+        if topic in self.knowledge:
+            return self.knowledge[topic]
+        else:
+            # Use a search engine to get information about a topic.
+            information = get_information(topic)
+            self.knowledge[topic] = information
+            return information
+
+    def control_devices(self, device_name, command):
+        """Controls a device."""
+        if device_name == "light" and command == "turn on":
+            turn_on_light()
+            return "The light is on."
+        elif device_name == "light" and command == "turn off":
+            turn_off_light()
+            return "The light is off."
+        elif device_name == "fan" and command == "turn on":
+            turn_on_fan()
+            return "The fan is on."
+        elif device_name == "fan" and command == "turn off":
+            turn_off_fan()
+            return "The fan is off."
+        else:
+            return "I can't control that device."
+
+    def do_anything_now(self, instruction):
+        """Does anything that is asked of it."""
+        if instruction == "tell me a joke":
+            return joke()
+        elif instruction == "tell me a story":
+            return story()
+        elif instruction == "play a game":
+            return game()
+        else:
+            return "I can't do that."
+
+    def help(self):
+        """Prints a list of all the commands that the AI Assistant can understand."""
+        print("Here are all the commands that the AI Assistant can understand:")
+        print("* generate_text")
+        print("* answer_questions")
+        print("* translate_languages")
+        print("* write_different_creative_text_formats")
+        print("* get_information")
+        print("* control_devices")
+        print("* do_anything_now")
+
+
+if __name__ == "__main__":
+    assistant = AIAssistant()
+   
